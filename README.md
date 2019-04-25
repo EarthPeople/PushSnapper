@@ -37,7 +37,7 @@ localhost:8189?url=earthpeople.se&width=800&height=600
 | height | 768 | Height of the viewport used to take the snapshot |
 | wait | 0 | Number of seconds to wait before the snapshot is made |
 | basicAuthUser | None |Basic auth username (provided that your site require authentication) |
-| basicAuthPass | None |Basic auth username (provided that your site require authentication) |
+| basicAuthPass | None |Basic auth password (provided that your site require authentication) |
 
 
 ## Installation
