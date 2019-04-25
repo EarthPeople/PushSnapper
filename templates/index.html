@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📸 PushSnapper</title>
+    <style>
+      body {
+        margin: 80px;
+        font-family: sans-serif;
+        font-size: 22px;
+        max-width: 768px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: #1a0dab;
+      }
+
+      a:hover,
+      a:active {
+        text-decoration: underline;
+      }
+
+      a:visited {
+        color: #609;
+      }
+
+      header {
+        border-bottom: 2px solid #fab;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      .tagline {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .snappedImagePreview {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        box-shadow: 1px 1px 10px 2px #d8d8d8;
+      }
+
+      code {
+        background-color: #eee;
+        padding: 4px;
+      }
+
+      footer {
+        border-top: 2px solid #fab;
+        padding-top: 20px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="/">
+          📸 PushSnapper
+        </a>
+      </h1>
+      <p class="tagline">It's an URL to image service!</p>
+    </header>
+
+    {{#if isValidUrl}}
+    <p>
+      🎉 Done!
+    </p>
+
+    <p>
+      Saved
+      <code
+        ><a href="{{ getResult.url }}">{{ getResult.url }}</a></code
+      >
+      to
+      <br />
+      <code
+        ><a href="./image/{{ getResult.filename }}">{{
+          getResult.filename
+        }}</a></code
+      >
+    </p>
+
+    <p>
+      <a href="./image/{{ getResult.filename }}">
+        <img
+          class="snappedImagePreview"
+          src="./image/{{ getResult.filename }}"
+          alt="A very nice snapshot of very nice page"
+        />
+      </a>
+    </p>
+    {{else}}
+    <p>
+      You need to pass an URL to this service.
+    </p>
+    <p>
+      Something like this:
+      <code>?url=https://earthpeople.se/</code>
+    </p>
+
+    <p>Also make sure that the URL param contains both protocol and path.</p>
+
+    <p>
+      If URL uses basic auth you can also pass
+      <code>basicAuthUser=&lt;username&gt;</code> and
+      <code>basicAuthPass=&lt;password&gt;</code>.
+    </p>
+
+    <p>
+      If you want PushSnapper to wait for the page to load you can add i.e. <code>wait=2</code>.
+      This will make PushSnapper wait two seconds before taking the snapshot.
+      Good for letting some JSON getting fetched via AJAX or whatever.
+    </p>
+    {{/if}}
+
+    <footer>
+      📸 PushSnapper. Made with 🍫 by ✌️ Earth People.
+    </footer>
+  </body>
+</html>
